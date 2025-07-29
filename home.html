@@ -5,7 +5,315 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Smart Excel Store</title>
-  <link rel="stylesheet" href="img/style.css">
+  <style>/* style.css */
+body {
+  font-family: sans-serif;
+  background-color: #f9fafb;
+  color: #1f2937;
+  margin: 0;
+}
+
+header {
+  background-color: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 90rem;
+  margin: 0 auto;
+}
+
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+}
+
+nav a {
+  margin-left: 1rem;
+  color: #58a251;
+  text-decoration: none;
+}
+
+
+nav a:hover {
+  text-decoration: underline;
+}
+/* Mobile menu toggle */
+/* Default navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #58a251;
+  padding: 10px 20px;
+  position: relative;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav-links li a,
+.nav-links li button {
+  color:#58a251;
+  text-decoration: none;
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Hamburger button */
+.toggle-btn {
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: #58a251;
+  cursor: pointer;
+  display: none;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+  .toggle-btn {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color:white;
+    position: absolute;
+    top: 80px;
+    right: 10px;
+    width: 100px;
+    border-radius: 8px;
+    padding: 10px;
+    z-index: 10;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+}
+
+
+.hero {
+  text-align: center;
+  padding: 2.5rem;
+  background-color: #c3febe;
+}
+
+.hero h2 {
+  font-size: 1.875rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  color: #4b5563;
+}
+
+.hero a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1.5rem;
+  background-color: #58a251;
+  color: white;
+  border-radius: 0.75rem;
+  text-decoration: none;
+}
+
+.hero a:hover {
+  background-color: #2c7925;
+}
+
+.products {
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.products h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.product {
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+}
+
+.product img {
+  width: 100%;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.product h4 {
+  font-weight: bold;
+}
+
+.product p {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.product button {
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  background-color: #16a34a;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.product button:hover {
+  background-color: #2c7925;
+}
+
+.about, .contact {
+  background-color: #f3f4f6;
+  padding: 2rem;
+  text-align: center;
+}
+
+.about h3, .contact h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.about p, .contact p {
+  color: #374151;
+}
+.cart-container {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 999;
+}
+
+.cart-toggle {
+  background-color: #58a251;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.cart {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  width: 250px;
+  max-height: 400px;
+  overflow-y: auto;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+#cart button{
+   margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  background-color: #16a34a;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer; 
+}
+#cart button:hover {
+  background-color: #2c7925;
+}
+
+.hidden {
+
+  display: none;
+}
+
+#cart-items li {
+  margin-bottom: 8px;
+}
+
+
+
+
+.contact a.button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1.5rem;
+  background-color: #58a251;
+  color: white;
+  border-radius: 0.75rem;
+  text-decoration: none;
+}
+
+.contact a.button:hover {
+  background-color: #2c7925;
+}
+
+footer {
+  background-color: #ffffff;
+  text-align: center;
+  padding: 1rem;
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 640px) {
+  nav a {
+    display: inline-block;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+  .products, .about, .contact {
+    padding: 1.5rem;
+  }
+  header h1{
+    font-size: 1rem;
+  }
+
+}
+</style>
 </head>
 
 <body>
@@ -97,7 +405,105 @@
   <footer>
     <p>&copy; 2025 SmartExcelStore. All rights reserved.</p>
   </footer>
-  <script src="img/script.js"></script>
+  <script>
+//nave
+function toggleNav() {
+  const navLinks = document.getElementById("nav-links");
+  navLinks.classList.toggle("show");
+}
+//cart
+let cart = [];
+
+function addToCart(productName, price) {
+  const index = cart.findIndex(item => item.productName === productName);
+  if (index !== -1) {
+    cart[index].quantity += 1;
+  } else {
+    cart.push({ productName, price, quantity: 1 });
+  }
+  updateCart();
+}
+
+function updateCart() {
+  const cartItemsEl = document.getElementById("cart-items");
+  const cartCountEl = document.getElementById("cart-count");
+  const cartTotalEl = document.getElementById("cart-total");
+
+  cartItemsEl.innerHTML = "";
+  let totalItems = 0;
+  let totalPrice = 0;
+
+  cart.forEach((item, i) => {
+    const li = document.createElement("li");
+
+    li.innerHTML = `
+      ${item.productName} - ₹${item.price} × ${item.quantity}
+      <button onclick="increaseQuantity(${i})">add</button>
+      <button onclick="decreaseQuantity(${i})">descart</button>
+    `;
+
+    cartItemsEl.appendChild(li);
+    totalItems += item.quantity;
+    totalPrice += item.price * item.quantity;
+  });
+
+  cartCountEl.textContent = totalItems;
+  cartTotalEl.textContent = totalPrice;
+}
+
+function increaseQuantity(index) {
+  cart[index].quantity += 1;
+  updateCart();
+}
+
+function decreaseQuantity(index) {
+  if (cart[index].quantity > 1) {
+    cart[index].quantity -= 1;
+  } else {
+    cart.splice(index, 1); // Remove if quantity is 0
+  }
+  updateCart();
+}
+
+function toggleCart() {
+  document.getElementById("cart").classList.toggle("hidden");
+}
+
+function checkout() {
+
+ if (cart.length === 0) {
+    alert("🛒 Your cart is empty!");
+    return;
+  }
+
+  let message = "🛒 *Your Cart Details:*\n\n";
+  let total = 0;
+
+  cart.forEach(item => {
+    const lineTotal = item.price * item.quantity;
+    total += lineTotal;
+    message += `📦 ${item.productName} - Qty: ${item.quantity} - ₹${lineTotal}\n`;
+  });
+
+  message += `\n💰 *Total Amount: ₹${total}*\n`;
+  message += `\n👉 Please confirm your order here!`;
+
+  // Copy to clipboard
+  navigator.clipboard.writeText(message)
+    .then(() => {
+      alert("✅ Cart copied to clipboard!\nPaste it in Instagram chat.");
+      // Open Instagram profile
+      window.open("https://www.instagram.com/smar_tsheet", "_blank");
+    })
+    .catch(err => {
+      alert("❌ Could not copy the message. Please try again.");
+      console.error(err);
+    });
+}
+
+
+
+</script>
 
 </body>
 
