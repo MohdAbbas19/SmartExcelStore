@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Excel Store</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+  <div class="container">
+    <a href="home.html" class="logo-wrap">
+      <img src="img/logo.png" alt="" class="logo">
+      <span>SmartExcelStore</span>
+    </a>
+    <nav class="navbar">
+  <!-- Toggle (Only visible on mobile) -->
+  <button class="toggle-btn" onclick="toggleNav()">☰</button>
+
+  <!-- Navigation Links -->
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#products">Templates</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+  </div>
+</header>
+
+
+  <!-- Hero -->
+  <section class="hero">
+    <h2>Smart Excel Sheets & Digital Tools</h2>
+    <p>Boost productivity with powerful Excel templates and tools</p>
+    <a href="#products">Shop Now</a>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h3>About Us</h3>
+    <p>We create simple yet powerful Excel tools to help professionals, students, and small business owners automate their work and save time.</p>
+  </section>
+
+  <!-- Product Section -->
+  <section id="products" class="products">
+    <h3>Our Products</h3>
+    <div class="product-grid">
+      <!-- Product Card -->
+      <div class="product">
+        <img src="img/sh2.png" alt="Monthly Budget Sheet">
+        <h4>Monthly Budget Sheet</h4>
+        <p>Track income, expenses and savings.</p>
+        <button onclick="addToCart('Monthly Budget Sheet', 99)">Buy ₹99</button>
+
+      </div>
+      <div class="product">
+        <img src="img/sh3.png" alt="Inventory Manager">
+        <h4>Inventory Manager</h4>
+        <p>Manage product stocks easily.</p>
+        <button onclick="addToCart('Inventory Manager', 149)">Buy ₹149</button>
+
+      </div>
+      <div class="product">
+        <img src="img/sh1.jpg" alt="Sales Dashboard">
+        <h4>Sales Dashboard</h4>
+        <p>Visualize monthly sales with charts.</p>
+        <button onclick="addToCart('Sales Dashboard', 199)">Buy ₹199</button>
+
+      </div>
+    </div>
+  </section>
+
+  
+<div class="cart-container">
+  <button class="cart-toggle" onclick="toggleCart()">🛒 Cart (<span id="cart-count">0</span>)</button>
+  <div id="cart" class="cart hidden">
+    <h3>Your Cart</h3>
+    <ul id="cart-items"></ul>
+    <p>Total: ₹<span id="cart-total">0</span></p>
+    <button onclick="checkout()">Checkout</button>
+  </div>
+</div>
+
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h3>Get in Touch</h3>
+    <p>Email us at <a href="mailto:mabbas122119sk@gmail.com">mabbas122119sk@gmail.com</a></p>
+    <a href="https://www.instagram.com/smar_tsheet" target="_blank" class="button">Chat Now on Instagram</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 SmartExcelStore. All rights reserved.</p>
+  </footer>
+  <script src="script.js"></script>
+
+</body>
+
+</html>
